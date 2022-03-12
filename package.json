@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "NODE_ENV=dev nodemon ./server",
+    "start": "NODE_ENV=production node ./server",
+    "db_test": "NODE_ENV=test jest test/database.test.js",
+    "routes_test": "NODE_ENV=test jest test/routes.test.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,7 @@
     "express": "^4.17.3",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
     "pg": "^8.7.3"
   },
   "devDependencies": {
@@ -31,7 +35,6 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
     "jest": "^27.5.1",
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2"
   }
