@@ -1,11 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/57c783de70.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/main.css" />
   <title>Reddit</title>
 </head>
+
 <body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="/home">
+        <img src="assets/Reddit-Logo.png" alt="Reddit Logo" class="logo" />
+      </a>
+      <form class="search-form">
+        <button type="submit" class="search-button" id="search-button-home">
+          <i class="fas fa-search"></i>
+        </button>
+        <input type="text" placeholder="Search Reddit" class="search-input" id="search-input-home" />
+      </form>
+      <div class="links-container">
+        <span class="link login">
+          <a href="/login" id="login">Log In</a>
+        </span>
+        <span class="link register">
+          <a href="/register" id="register"> Sign Up</a>
+        </span>
+      </div>
+    </nav>
+  </header>
+  <!-- MAIN SECTION -->
+  <section class="main-section">
+    <div class="main-section-container">
+      <!-- Top Menu -->
+      <div class="top-menu">
+        <span class="ordered-by">
+          <a href="/hot" id="hot">Hot</a>
+        </span>
+        <select id="location">
+          <option value="Mohammed">United State</option>
+        </select>
+        <span class="ordered-by">
+          <a href="/new" id="new">New</a>
+        </span>
+        <span class="ordered-by">
+          <a href="/top" id="top">Top</a>
+        </span>
+      </div>
+
+      <!-- Posts Container -->
+      <div class="posts-container">
+        <!-- POST --------------------------------->
+        <div class="post">
+          <!-- Post Side Bar -->
+          <div class="post-side-bar">
+            <span class="up arrow"><i class="fa fa-arrow-up"></i></span>
+            <span class="rating">100</span>
+            <span class="down arrow"><i class="fa fa-arrow-down"></i></span>
+          </div>
+          <!-- Post Content -->
+          <div class="post-general">
+            <div class="post-header">
+              <a href="">
+                <img class="user-image" src="assets/user.png" alt="User image" width="20px" />
+              </a>
+              <p class="user-name">Mohammed</p>
+              <p class="post-information">
+                Posted byu/Virus19847 6 hours ago
+              </p>
+            </div>
+            <div class="post-content">
+              <p class="post-paragraph">
+                Family of Emmett Till want woman who made false accusation to
+                be charged with murder for 1955 lynching
+              </p>
+            </div>
+            <div class="post-footer">
+              <i class="icon far fa-comment-alt"></i>
+              <p class="parag">7.0k Comments</p>
+              <i class="icon fa fa-share"></i>
+              <p class="parag">Share</p>
+              <i class="icon fa fa-angle-up"></i>
+              <p class="parag">Save</p>
+              <i class="icon fa fa-ellipsis-h"></i>
+            </div>
+          </div>
+        </div>
+        <!-- End Post ----------------------------->
+      </div>
+    </div>
+    <aside class="main-section-aside"></aside>
+  </section>
 </body>
+
 </html>
