@@ -4,19 +4,22 @@ const loginForm = document.getElementById('login-form');
 
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const data = {
-    email: emailInput.value,
-    password: passwordInput.value,
-  };
-  fetch('/login', {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-    method: 'POST',
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-    });
+  if (emailInput.value.length >= 8 && passwordInput.value.length >= 4) {
+    const data = {
+      email: emailInput.value,
+      password: passwordInput.value,
+    };
+    fetch('/login', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        window.location.href = '/home';
+      })
+      .catch(console.log);
+  }
 });
