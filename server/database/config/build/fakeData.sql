@@ -1,17 +1,13 @@
-INSERT INTO users(username, email, firstname, lastname, password)
+INSERT INTO users(username, email, password)
 VALUES (
     'mohammed',
     'mohammed@gmail.com',
-    'Mohammed',
-    'Hamada',
     '$2a$10$FEPKHKn939PO5aBr1pDBzORkq6XjBqHhCkqJ18M06a9NgwIt2u3h6'
   );
-INSERT INTO users(username, email, firstname, lastname, password)
+INSERT INTO users(username, email, password)
 VALUES (
     'ahmed',
     'ahmed@gmail.com',
-    'Ahmed',
-    'Hamada',
     '$2a$10$4LjcIHif4ND32BDbwGmsZ.UrbEBy0dbxh5lbUTIkh0ZUL1sxCEfWe'
   );
 INSERT INTO posts(user_id, title, content, vote, date)
