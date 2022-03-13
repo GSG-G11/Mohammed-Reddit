@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/57c783de70.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <title>Reddit</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a href="/home">
+          <img src="../assets/Reddit-Logo.png" alt="Reddit Logo" class="logo" />
+        </a>
+        <div class="links-container">
+          <span class="link home">
+            <a href="/home" id="home">Home</a>
+          </span>
+          <span class="link register">
+            <a href="/register" id="register">Sign Up</a>
+          </span>
+        </div>
+      </nav>
+    </header>
+    <!-- Login SECTION -->
+    <section class="login-section">
+      <form id="login-form">
+        <input
+          class="login-form-element"
+          id="email-login"
+          name="email"
+          type="email"
+          required
+          placeholder="Email"
+        />
+        <input
+          class="login-form-element"
+          id="password-login"
+          name="password"
+          type="password"
+          required
+          placeholder="Password"
+          maxlength="50"
+          minlength="4"
+        />
+        <button class="login-form-element" type="submit" id="submit-login">
+          LOG IN
+        </button>
+        <p class="new-to-reddit">
+          New to Reddit?
+          <a href="/register">SIGN UP</a>
+        </p>
+      </form>
+    </section>
+  </body>
+</html>
