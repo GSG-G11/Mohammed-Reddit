@@ -84,11 +84,13 @@ a {
   border-radius: 40px;
   font-weight: 500;
 }
-.login {
+.login,
+.home {
   border: 1px solid #0079d3;
   color: #0079d3;
 }
-#login {
+#login,
+#home {
   color: #0079d3;
   width: 100%;
   height: 100%;
@@ -98,119 +100,4 @@ a {
 }
 #register {
   width: 100px;
-}
-.main-section {
-  border-radius: 5px;
-  width: 1000px;
-  margin-top: 80px;
-}
-
-.main-section {
-  display: flex;
-  justify-content: space-between;
-}
-.main-section-container {
-  display: flex;
-  flex-direction: column;
-  margin-right: 25px;
-  width: 900px;
-}
-.top-menu {
-  display: flex;
-  align-items: center;
-  height: 60px;
-  background-color: #fff;
-  margin-bottom: 20px;
-  border-radius: 8px;
-}
-.ordered-by {
-  margin: 10px;
-}
-#hot,
-#top,
-#new {
-  color: #0079d3;
-  background-color: #ecececa6;
-  padding: 5px 20px;
-  border-radius: 20px;
-}
-#top,
-#new {
-  color: #282828a6;
-}
-#location {
-  color: #0079d3;
-  background-color: #ecececa6;
-  padding: 5px 5px;
-  border-radius: 20px;
-}
-.post {
-  display: flex;
-  padding: 10px 10px 10px 5px;
-  margin-bottom: 10px;
-  background-color: #fff;
-  border-radius: 8px;
-}
-.posts-container {
-  display: flex;
-  flex-direction: column;
-}
-.post-side-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 40px;
-  margin-right: 5px;
-}
-.rating,
-.arrow {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-.arrow {
-  cursor: pointer;
-}
-.post-header {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-.user-image {
-  margin-right: 10px;
-}
-.user-name {
-  font-weight: bold;
-  font-size: 13px;
-  margin-right: 10px;
-}
-.post-information {
-  color: #818181;
-}
-.post-general {
-  display: flex;
-  flex-direction: column;
-}
-.post-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.post-footer {
-  display: flex;
-  margin-top: 20px;
-  align-items: center;
-}
-.icon {
-  margin-right: 8px;
-  color: #818181;
-}
-.parag {
-  margin-right: 20px;
-  color: #818181;
-}
-.main-section-aside {
-  width: 400px;
-  background-color: #fff;
-  border-radius: 8px;
 }
