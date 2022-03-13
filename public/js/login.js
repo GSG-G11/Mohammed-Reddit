@@ -18,8 +18,14 @@ loginForm.addEventListener('submit', (e) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        window.location.href = '/home';
+        if (result.username) {
+          window.location.href = '/home';
+        } else {
+          swal('error', result.message, 'error');
+        }
       })
-      .catch(console.log);
+      .catch((err) => {
+        window.location.href = '/login';
+      });
   }
 });
