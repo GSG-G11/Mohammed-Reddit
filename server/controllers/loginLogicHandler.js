@@ -12,7 +12,7 @@ const loginLogicHandler = (req, res, next) => {
     .then(() => getUserByEmail(email))
     .then((data) => {
       if (!data.rows.length) {
-        customizedError({
+        throw customizedError({
           errorMessage: "Email doesn't exists, Try another one or sign up",
           status: 401,
         });
@@ -26,7 +26,7 @@ const loginLogicHandler = (req, res, next) => {
       if (isValid) {
         return signAuthentication({ id });
       }
-      customizedError({ errorMessage: 'Authorization failed', status: 401 });
+      throw customizedError({ errorMessage: 'Authorization failed', status: 401 });
     })
     .then((token) => {
       if (token) {

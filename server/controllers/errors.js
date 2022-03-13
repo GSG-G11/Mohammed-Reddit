@@ -7,7 +7,7 @@ const pageNotFoundError = (req, res, next) => {
       join(__dirname, '..', '..', 'public', 'html', '404.html'),
       (err) => {
         if (err) next(err);
-      }
+      }   
     );
 };
 const serverError = (err, req, res, next) => {
