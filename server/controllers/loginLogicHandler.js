@@ -12,7 +12,10 @@ const loginLogicHandler = (req, res, next) => {
     .then(() => getUserByEmail(email))
     .then((data) => {
       if (!data.rows.length) {
-        customizedError({ errorMessage: 'Authorization failed', status: 401 });
+        customizedError({
+          errorMessage: "Email doesn't exists, Try another one or sign up",
+          status: 401,
+        });
       } else {
         id = data.rows[0].id;
         username = data.rows[0].username;
@@ -35,7 +38,13 @@ const loginLogicHandler = (req, res, next) => {
           .send({ username, message: 'Successfully Logged In' });
       }
     })
-    .catch(next);
+    .catch((err) => {
+      if (!err.details) {
+        next(err);
+      } else {
+        next(customizedError({errorMessage: err.details[0].message, status: 400 }));
+      }
+    });
 };
 
 module.exports = loginLogicHandler;
