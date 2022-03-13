@@ -1,5 +1,5 @@
 const { sign } = require('jsonwebtoken');
-const { customizedError } = require('../controllers');
+const customizedError = require('./customizedError');
 
 const signAuthentication = (payload) => new Promise((resolve, reject) => {
   sign(payload, process.env.SECRET, (err, encoded) => {
