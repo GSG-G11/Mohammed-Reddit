@@ -1,4 +1,3 @@
-const customizedError  = require('./customizedError');
 const verifyAuthentication = require('./verifyAuthentication');
 
 verifyAuthentication;
