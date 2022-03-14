@@ -1,5 +1,5 @@
 const { customizedError, signAuthentication } = require('../auth');
-const { addUser } = require('../database/queries');
+const { addUser, checkEmail } = require('../database/queries');
 const { signupSchema, hashingPassword } = require('../utils');
 
 const registerLogicHandler = (req, res, next) => {
@@ -7,7 +7,16 @@ const registerLogicHandler = (req, res, next) => {
   let id;
   signupSchema
     .validateAsync(req.body)
-    .then(() => hashingPassword(password))
+    .then(() => checkEmail(email))
+    .then((data) => {
+      const { exists } = data.rows[0];
+      if (exists) {
+        throw customizedError({
+          errorMessage: 'This email already exists, try again',
+          status: 400,
+        });
+      } else return hashingPassword(password);
+    })
     .then((hashedPassword) => {
       return addUser(username, email, hashedPassword);
     })
