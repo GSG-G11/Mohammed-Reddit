@@ -1,11 +1,13 @@
-const loginLogicHandler = require('./loginLogicHandler');
 const loginPageHandler = require('./loginPageHandler');
-const customizedError = require('../auth/customizedError');
+const registerPageHandler = require('./registerPageHandler');
+const loginLogicHandler = require('./loginLogicHandler');
 const { pageNotFoundError, serverError } = require('./errors');
+const registerLogicHandler = require('./registerLogicHandler');
 module.exports = {
   loginPageHandler,
   loginLogicHandler,
-  customizedError,
   pageNotFoundError,
   serverError,
+  registerPageHandler,
+  registerLogicHandler
 };

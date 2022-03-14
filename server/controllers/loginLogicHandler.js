@@ -14,7 +14,7 @@ const loginLogicHandler = (req, res, next) => {
       if (!data.rows.length) {
         throw customizedError({
           errorMessage: "Email doesn't exists, Try another one or sign up",
-          status: 401,
+          status: 406,
         });
       } else {
         id = data.rows[0].id;
