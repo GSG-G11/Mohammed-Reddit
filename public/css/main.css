@@ -98,10 +98,14 @@ a {
   height: 100%;
 }
 .register,
-.porfile {
+.profile {
   background-color: #0079d3;
 }
+.profile{
+  width: fit-content;
+  padding: 0 15px;
+}
 #register,
-#porfile {
+#profile {
   width: 100px;
 }
