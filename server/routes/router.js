@@ -8,12 +8,16 @@ const {
   homePageHandler,
   pageNotFoundError,
   serverError,
+  sendUserData,
 } = require('../controllers');
 
 router.route('/login').get(loginPageHandler).post(loginLogicHandler);
 router.route('/register').get(registerPageHandler).post(registerLogicHandler);
 
-router.get('/home', checkAuthentication, homePageHandler);
+router
+  .route('/home')
+  .get(checkAuthentication, homePageHandler)
+  .post(checkAuthentication, sendUserData);
 
 router.use(pageNotFoundError);
 router.use(serverError);
