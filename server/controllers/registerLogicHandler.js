@@ -28,6 +28,7 @@ const registerLogicHandler = (req, res, next) => {
         });
       } else {
         id = data.rows[0].id;
+        req.id = id;
         username = data.rows[0].username;
         return signAuthentication({ id });
       }
@@ -40,6 +41,7 @@ const registerLogicHandler = (req, res, next) => {
             maxAge: 900000000,
           })
           .send({ username, message: 'Successfully Registered' });
+        next();
       }
     })
     .catch((err) => {

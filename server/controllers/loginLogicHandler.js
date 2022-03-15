@@ -18,6 +18,7 @@ const loginLogicHandler = (req, res, next) => {
         });
       } else {
         id = data.rows[0].id;
+        req.id = id;
         username = data.rows[0].username;
         return compare(password, data.rows[0].password);
       }
@@ -36,6 +37,7 @@ const loginLogicHandler = (req, res, next) => {
             maxAge: 900000000,
           })
           .send({ username, message: 'Successfully Logged In' });
+          next();
       }
     })
     .catch((err) => {
