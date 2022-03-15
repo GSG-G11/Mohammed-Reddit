@@ -7,12 +7,17 @@ const pageNotFoundError = (req, res, next) => {
       join(__dirname, '..', '..', 'public', 'html', '404.html'),
       (err) => {
         if (err) next(err);
-      }   
+      }
     );
 };
 const serverError = (err, req, res, next) => {
-  res.status(err.status || 500);
-  if (err.message) res.json({ status: err.status, message: err.message });
+  const status = err.status || 500;
+  if (status === 401)
+    res
+      .status(status)
+      .json({ status: 403, message: 'You dont have permission' });
+  else if (status !== 401)
+    res.status(status).json({ status: status, message: err.message });
   else res.sendFile(join(__dirname, '..', '..', 'public', 'html', '500.html'));
 };
 module.exports = {
