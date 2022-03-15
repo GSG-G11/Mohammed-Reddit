@@ -93,7 +93,7 @@
 .post-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 .post-footer {
   display: flex;
@@ -113,40 +113,41 @@
   background-color: #fff;
   border-radius: 4px;
   padding: 10px;
+  height: 450px;
 }
-.main-section-aside-title{
+.main-section-aside-title {
   text-align: center;
   margin-bottom: 20px;
   font-size: 25px;
   font-weight: 500;
 }
-#add-post-form{
+#add-post-form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.add-post-form-element{
+.add-post-form-element {
   padding: 10px 30px 10px 15px;
   width: 100%;
   margin-bottom: 10px;
   border-radius: 4px;
   border: 1px solid rgba(137, 137, 137, 0.5);
 }
-#post-content{
+#post-content {
   height: 150px;
   resize: none;
 }
-#post-content:focus{
+#post-content:focus {
   outline: none !important;
 }
-#submit-post{
+#submit-post {
   cursor: pointer;
   background-color: #0079d3;
-  color: #FFF;
+  color: #fff;
   font-weight: 600;
 }
 
-.new-to-reddit{
+.new-to-reddit {
   margin-top: 10px;
 }
 .new-to-reddit a {
@@ -154,16 +155,16 @@
   color: #0079d3;
   margin-left: 10px;
 }
-.user-information{
+.user-information {
   display: flex;
   flex-direction: column;
 }
-.profile-picture{
+.profile-picture {
   align-self: center;
   width: 100px;
   object-fit: cover;
 }
-#username{
+#username {
   align-self: center;
   padding-bottom: 20px;
   margin-bottom: 15px;
