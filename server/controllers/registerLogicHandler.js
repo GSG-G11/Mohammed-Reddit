@@ -41,7 +41,6 @@ const registerLogicHandler = (req, res, next) => {
             maxAge: 900000000,
           })
           .send({ username, message: 'Successfully Registered' });
-        next();
       }
     })
     .catch((err) => {

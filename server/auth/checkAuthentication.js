@@ -5,7 +5,7 @@ const checkAuthentication = (req, res, next) => {
   const token = req.cookies.Access_Token;
   verifyAuthentication(token)
     .then((data) => {
-      req.user_id = data.id; // user_id 
+      req.user_id = data.id; 
       next();
     })
     .catch(next);
