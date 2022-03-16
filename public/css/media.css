@@ -1,9 +1,15 @@
 @media screen and (max-width: 1300px) {
+  body{
+    align-items: unset;
+  }
   .main-section {
     width: 1000px;
   }
 }
 @media screen and (max-width: 1000px) {
+  body{
+    align-items: unset;
+  }
   .main-section {
     width: 1000px;
     flex-direction: column-reverse;
@@ -25,8 +31,11 @@
   }
 }
 @media screen and (max-width: 720px) {
+  body{
+    align-items: unset;
+  }
   .main-section {
-    width: 800px;
+    width: 1000px;
     flex-direction: column-reverse;
     align-items: center;
   }
@@ -44,6 +53,9 @@
   }
 }
 @media screen and (max-width: 580px) {
+  body{
+    align-items: unset;
+  }
   .main-section {
     width: 700px;
     flex-direction: column-reverse;
@@ -62,6 +74,9 @@
   }
 }
 @media screen and (max-width: 500px) {
+  body{
+    align-items: unset;
+  }
   .main-section {
     width: 600px;
     flex-direction: column-reverse;
