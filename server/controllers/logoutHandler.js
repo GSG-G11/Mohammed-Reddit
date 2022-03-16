@@ -7,6 +7,6 @@ module.exports = (req, res, next) => {
       })
     );
   } else {
-    res.clearCookie('Access_Token').status(200).redirect('/login');
+    res.clearCookie('Access_Token').status(200).json({ message: 'success' });
   }
 };
