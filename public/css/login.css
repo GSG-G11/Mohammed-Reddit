@@ -25,7 +25,9 @@ body{
   color: #FFF;
   font-weight: 600;
 }
-
+.logout{
+  cursor: pointer;
+}
 .new-to-reddit{
   margin-top: 10px;
 }

@@ -14,6 +14,7 @@ const {
   downRatingPost,
   allPostsHandler,
   deletePostHandler,
+  logoutHandler,
 } = require('../controllers');
 
 router.route('/login').get(loginPageHandler).post(loginLogicHandler);
@@ -29,6 +30,8 @@ router.post('/post', addPostHandler);
 router.post('/post/up/:post_id?', upRatingPost);
 router.post('/post/down/:post_id?', downRatingPost);
 router.delete('/post/:post_id?', deletePostHandler);
+router.post('/logout', logoutHandler);
+
 router.use(pageNotFoundError);
 router.use(serverError);
 

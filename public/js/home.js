@@ -3,6 +3,7 @@ const postTitle = document.getElementById('post-title');
 const postContent = document.getElementById('post-content');
 const addPostForm = document.getElementById('add-post-form');
 const postsContainer = document.querySelector('.posts-container');
+const logoutBtn = document.getElementById('logout');
 let user_id;
 let user_name;
 
@@ -82,7 +83,21 @@ const createPost = (parent, data, username, postId) => {
   parent.appendChild(post);
   return post;
 };
-
+logoutBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  fetch('/logout', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      if (result.message === 'success') {
+        window.location.href = '/login';
+      }
+    });
+});
 document.addEventListener('DOMContentLoaded', (e) => {
   e.preventDefault();
   fetch('/home', {
@@ -172,8 +187,7 @@ addPostForm.addEventListener('submit', (e) => {
     .then((result) => {
       createPost(postsContainer, result.data, user_name, result.data.id);
       postTitle.value = '';
-        postContent.value = '';
-      
+      postContent.value = '';
     })
     .catch((err) => {
       window.location.href = '/login';
