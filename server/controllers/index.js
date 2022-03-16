@@ -5,6 +5,7 @@ const { pageNotFoundError, serverError } = require('./errors');
 const registerLogicHandler = require('./registerLogicHandler');
 const homePageHandler = require('./homePageHandler');
 const sendUserData = require('./sendUserData');
+const logoutHandler = require('./logoutHandler');
 const {
   addPostHandler,
   upRatingPost,
@@ -12,7 +13,6 @@ const {
   allPostsHandler,
   deletePostHandler,
 } = require('./postsHandlers');
-
 module.exports = {
   loginPageHandler,
   loginLogicHandler,
@@ -27,4 +27,5 @@ module.exports = {
   downRatingPost,
   allPostsHandler,
   deletePostHandler,
+  logoutHandler,
 };

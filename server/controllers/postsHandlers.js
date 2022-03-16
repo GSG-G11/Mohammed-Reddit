@@ -61,8 +61,9 @@ const allPostsHandler = (req, res, next) => {
             status: 204,
           })
         );
+      } else {
+        res.status(200).json({ message: 'success', data: data.rows });
       }
-      res.status(200).json({ message: 'success', data: data.rows });
     })
     .catch(next);
 };

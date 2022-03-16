@@ -17,11 +17,9 @@ const serverError = (err, req, res, next) => {
       res.status(status).redirect('/login');
       break;
     case 500:
-      console.log(500);
       res.sendFile(join(__dirname, '..', '..', 'public', 'html', '500.html'));
       break;
     default:
-      console.log(status);
       res.status(status).json({ status: status, message: err.message });
   }
 };
