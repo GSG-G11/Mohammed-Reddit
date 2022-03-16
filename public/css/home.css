@@ -52,7 +52,7 @@
 }
 .posts-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 .post-side-bar {
   display: flex;
@@ -63,7 +63,6 @@
 }
 .rating,
 .arrow {
-  font-size: 16px;
   margin-bottom: 5px;
 }
 .arrow {
@@ -94,6 +93,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+.post-paragraph{
+  width: 700px;
+}
+.post-title{
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 .post-footer {
   display: flex;
