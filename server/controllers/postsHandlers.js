@@ -68,13 +68,14 @@ const allPostsHandler = (req, res, next) => {
 };
 
 const deletePostHandler = (req, res, next) => {
+  const user_id = req.user_id;
   const { post_id } = req.params;
-  deletePost(post_id)
+  deletePost(user_id, post_id)
     .then((data) => {
       if (!data.rowCount) {
         next(
           customizedError({
-            errorMessage: 'No posts to delete.',
+            errorMessage: "Can't delete this post",
             status: 400,
           })
         );
