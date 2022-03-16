@@ -18,6 +18,7 @@ const loginLogicHandler = (req, res, next) => {
         });
       } else {
         id = data.rows[0].id;
+        req.user_id = id;
         username = data.rows[0].username;
         return compare(password, data.rows[0].password);
       }
@@ -26,7 +27,10 @@ const loginLogicHandler = (req, res, next) => {
       if (isValid) {
         return signAuthentication({ id });
       }
-      throw customizedError({ errorMessage: 'Authorization failed', status: 401 });
+      throw customizedError({
+        errorMessage: 'Authorization failed',
+        status: 401,
+      });
     })
     .then((token) => {
       if (token) {
@@ -36,13 +40,20 @@ const loginLogicHandler = (req, res, next) => {
             maxAge: 900000000,
           })
           .send({ username, message: 'Successfully Logged In' });
+      } else {
+        throw customizedError({
+          errorMessage: 'Authorization failed',
+          status: 401,
+        });
       }
     })
     .catch((err) => {
       if (!err.details) {
         next(err);
       } else {
-        next(customizedError({errorMessage: err.details[0].message, status: 400 }));
+        next(
+          customizedError({ errorMessage: err.details[0].message, status: 400 })
+        );
       }
     });
 };

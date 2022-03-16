@@ -28,6 +28,7 @@ const registerLogicHandler = (req, res, next) => {
         });
       } else {
         id = data.rows[0].id;
+        req.user_id = id;
         username = data.rows[0].username;
         return signAuthentication({ id });
       }

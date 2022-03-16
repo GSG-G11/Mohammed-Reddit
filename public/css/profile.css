@@ -52,7 +52,7 @@
 }
 .posts-container {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 .post-side-bar {
   display: flex;
@@ -63,6 +63,7 @@
 }
 .rating,
 .arrow {
+  font-size: 16px;
   margin-bottom: 5px;
 }
 .arrow {
@@ -94,14 +95,6 @@
   flex-direction: column;
   align-items: flex-start;
 }
-.post-paragraph {
-  width: 700px;
-}
-.post-title {
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
 .post-footer {
   display: flex;
   margin-top: 20px;
@@ -121,7 +114,7 @@
   background-color: #fff;
   border-radius: 4px;
   padding: 10px;
-  height: 350px;
+  height: 450px;
 }
 .main-section-aside-title {
   text-align: center;
@@ -135,7 +128,6 @@
   justify-content: space-between;
 }
 .add-post-form-element {
-  cursor: pointer;
   padding: 10px 30px 10px 15px;
   width: 100%;
   margin-bottom: 10px;
@@ -150,6 +142,7 @@
   outline: none !important;
 }
 #submit-post {
+  cursor: pointer;
   background-color: #0079d3;
   color: #fff;
   font-weight: 600;
@@ -162,4 +155,19 @@
   display: inline;
   color: #0079d3;
   margin-left: 10px;
+}
+.user-information {
+  display: flex;
+  flex-direction: column;
+}
+.profile-picture {
+  align-self: center;
+  width: 100px;
+  object-fit: cover;
+}
+#username {
+  align-self: center;
+  padding-bottom: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #aaaaaaa6;
 }

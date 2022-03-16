@@ -2,18 +2,28 @@ const { join } = require('path');
 
 const pageNotFoundError = (req, res, next) => {
   res
-    .status(400)
+    .status(404)
     .sendFile(
       join(__dirname, '..', '..', 'public', 'html', '404.html'),
       (err) => {
         if (err) next(err);
-      }   
+      }
     );
 };
 const serverError = (err, req, res, next) => {
-  res.status(err.status || 500);
-  if (err.message) res.json({ status: err.status, message: err.message });
-  else res.sendFile(join(__dirname, '..', '..', 'public', 'html', '500.html'));
+  const status = err.status || 500;
+  switch (status) {
+    case 401:
+      res
+        .status(status)
+        .json({ status: 403, message: 'You dont have permission' });
+      break;
+    case 500:
+      res.sendFile(join(__dirname, '..', '..', 'public', 'html', '500.html'));
+      break;
+    default:
+      res.status(status).json({ status: status, message: err.message });
+  }
 };
 module.exports = {
   pageNotFoundError,
