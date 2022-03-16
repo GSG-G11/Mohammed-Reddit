@@ -94,10 +94,10 @@
   flex-direction: column;
   align-items: flex-start;
 }
-.post-paragraph{
+.post-paragraph {
   width: 700px;
 }
-.post-title{
+.post-title {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 10px;
@@ -108,6 +108,7 @@
   align-items: center;
 }
 .icon {
+  cursor: pointer;
   margin-right: 8px;
   color: #818181;
 }
@@ -122,18 +123,18 @@
   padding: 10px;
   height: 350px;
 }
-.main-section-aside-title{
+.main-section-aside-title {
   text-align: center;
   margin-bottom: 20px;
   font-size: 25px;
   font-weight: 500;
 }
-#add-post-form{
+#add-post-form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.add-post-form-element{
+.add-post-form-element {
   cursor: pointer;
   padding: 10px 30px 10px 15px;
   width: 100%;
@@ -141,20 +142,20 @@
   border-radius: 4px;
   border: 1px solid rgba(137, 137, 137, 0.5);
 }
-#post-content{
+#post-content {
   height: 150px;
   resize: none;
 }
-#post-content:focus{
+#post-content:focus {
   outline: none !important;
 }
-#submit-post{
+#submit-post {
   background-color: #0079d3;
-  color: #FFF;
+  color: #fff;
   font-weight: 600;
 }
 
-.new-to-reddit{
+.new-to-reddit {
   margin-top: 10px;
 }
 .new-to-reddit a {

@@ -24,10 +24,11 @@ router
   .get(checkAuthentication, homePageHandler)
   .post(checkAuthentication, sendUserData);
 router.get('/post', allPostsHandler);
-router.post('/post', checkAuthentication, addPostHandler);
-router.post('/post/up/:post_id?', checkAuthentication, upRatingPost);
-router.post('/post/down/:post_id?', checkAuthentication, downRatingPost);
-router.delete('/post/:post_id?', checkAuthentication, deletePostHandler);
+router.use(checkAuthentication);
+router.post('/post', addPostHandler);
+router.post('/post/up/:post_id?', upRatingPost);
+router.post('/post/down/:post_id?', downRatingPost);
+router.delete('/post/:post_id?', deletePostHandler);
 router.use(pageNotFoundError);
 router.use(serverError);
 

@@ -1,17 +1,12 @@
-const userProfile = document.getElementById('profile');
 const postTitle = document.getElementById('post-title');
 const postContent = document.getElementById('post-content');
-const addPostForm = document.getElementById('add-post-form');
 const postsContainer = document.querySelector('.posts-container');
-let user_id;
-let user_name;
-
 const createElement = (tagName, className) => {
   const element = document.createElement(tagName);
   element.className = className;
   return element;
 };
-const createPost = (parent, data, username, postId) => {
+const createPost = (parent, data, username) => {
   const post = createElement('div', 'post');
   const postSideBar = createElement('div', 'post-side-bar');
   const upArrowSpan = createElement('span', 'up arrow');
@@ -63,119 +58,41 @@ const createPost = (parent, data, username, postId) => {
   postFooter.appendChild(share);
   postFooter.appendChild(saveIcon);
   postFooter.appendChild(save);
-  if (user_id === data.user_id) {
-    postFooter.appendChild(deleteIcon);
-    deleteIcon.setAttribute('onclick', 'deletePost(this)');
-  }
   postTitle.textContent = data.title;
   postParagraph.textContent = data.content;
-  postInformation.textContent = `Posted by ${user_name} at ${data.date}`;
+  postInformation.textContent = `Posted by ${data.name} at ${data.date}`;
   ratingSpan.textContent = data.vote === null ? '0' : data.vote;
   userName.textContent = username;
   comment.textContent = 'Comment';
   share.textContent = 'Share';
   save.textContent = 'Save';
-  post.id = postId;
-  upArrowSpan.setAttribute('onclick', 'upVote(this)');
-  downArrowSpan.setAttribute('onclick', 'downVote(this)');
+  upArrowSpan.setAttribute('onclick', 'upVote()');
+  downArrowSpan.setAttribute('onclick', 'downVote()');
 
   parent.appendChild(post);
   return post;
 };
-
 document.addEventListener('DOMContentLoaded', (e) => {
   e.preventDefault();
-  fetch('/home', {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      if (!result.data) {
-        user_id = result.user_data.id;
-        user_name = result.user_data.username;
-        userProfile.textContent = result.user_data.username;
-      } else {
-        window.location.href = '/login';
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
   fetch('/post')
     .then((response) => response.json())
     .then((result) => {
+      console.log(result);
       const posts = [...result.data];
-      postsContainer.textContent = '';
       posts.forEach((element) => {
-        createPost(postsContainer, element, element.username, element.id);
+        console.log(element);
+        createPost(postsContainer, element, element.username);
       });
     })
     .catch((err) => {
+      console.log(err);
       postsContainer.textContent = 'No posts yet';
     });
 });
-const upVote = (el) => {
-  fetch(`/post/up/${el.parentElement.parentElement.id}`, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      el.parentElement.children[1].textContent = result.data.vote;
-    })
-    .catch();
-};
-const downVote = (el) => {
-  fetch(`/post/down/${el.parentElement.parentElement.id}`, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      el.parentElement.children[1].textContent = result.data.vote;
-    })
-    .catch();
-};
-const deletePost = (el) => {
-  fetch(`/post/${el.parentElement.parentElement.parentElement.id}`, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'DELETE',
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      el.parentElement.parentElement.parentElement.remove();
-    });
-};
-addPostForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const postData = {
-    title: postTitle.value,
-    content: postContent.value,
-  };
-  fetch(`/post`, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-    body: JSON.stringify(postData),
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      createPost(postsContainer, result.data, user_name, result.data.id);
-      postTitle.value = '';
-        postContent.value = '';
-      
-    })
-    .catch((err) => {
-      window.location.href = '/login';
-    });
-});
+
+const upVote = () => {
+  window.location.href = '/login'
+}
+const downVote = () => {
+  window.location.href = '/login'
+}

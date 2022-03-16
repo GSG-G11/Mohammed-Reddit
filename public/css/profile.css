@@ -101,6 +101,7 @@
   align-items: center;
 }
 .icon {
+  cursor: pointer;
   margin-right: 8px;
   color: #818181;
 }
