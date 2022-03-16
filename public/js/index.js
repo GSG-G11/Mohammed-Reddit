@@ -77,22 +77,19 @@ document.addEventListener('DOMContentLoaded', (e) => {
   fetch('/post')
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
       const posts = [...result.data];
       posts.forEach((element) => {
-        console.log(element);
         createPost(postsContainer, element, element.username);
       });
     })
     .catch((err) => {
-      console.log(err);
       postsContainer.textContent = 'No posts yet';
     });
 });
 
 const upVote = () => {
-  window.location.href = '/login'
-}
+  window.location.href = '/login';
+};
 const downVote = () => {
-  window.location.href = '/login'
-}
+  window.location.href = '/login';
+};
