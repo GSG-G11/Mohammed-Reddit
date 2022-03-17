@@ -101,11 +101,30 @@ a {
 .profile {
   background-color: #0079d3;
 }
-.profile{
+.profile {
   width: fit-content;
   padding: 0 15px;
 }
 #register,
 #profile {
   width: 100px;
+}
+.page-not-found {
+  font-size: 1.4rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.page-not-found a {
+  background-color: #0079d3;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+.server-error{
+  font-size: 1.4rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
 }
